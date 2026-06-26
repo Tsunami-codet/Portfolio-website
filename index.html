@@ -1,155 +1,218 @@
+<!DOCTYPE html>
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vadym Rusanov – Software Developer</title>
   
-  <!-- 1. Классическая стабильная CSS-версия Tailwind v3 (Работает в любых браузерах без блокировок) -->
-  <link rel="stylesheet" href="https://jsdelivr.net">
+  <!-- Подключение библиотеки для фото (SimpleLightbox CSS) -->
+  <link rel="stylesheet" href="https://cloudflare.com">
   
-  <!-- 2. Корректные шрифты Google Fonts -->
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; color: #4a3538; background-color: #fff5f6; }
-    
-    /* Ваша оригинальная анимация мерцания звезд */
-    .stars-bg {
-      background:
-        radial-gradient(1px 1px at 10% 15%, #ff8ca3, transparent),
-        radial-gradient(1px 1px at 25% 40%, #ff8ca3, transparent),
-        radial-gradient(1px 1px at 40%  8%, #ff8ca3, transparent),
-        radial-gradient(1px 1px at 55% 60%, #ff8ca3, transparent),
-        radial-gradient(1px 1px at 70% 22%, #ff8ca3, transparent),
-        radial-gradient(1px 1px at 85% 75%, #ff8ca3, transparent),
-        radial-gradient(1px 1px at  5% 80%, #ff8ca3, transparent),
-        radial-gradient(1px 1px at 92% 10%, #ff8ca3, transparent),
-        radial-gradient(1px 1px at 33% 90%, #ff8ca3, transparent),
-        radial-gradient(1px 1px at 78% 45%, #ff8ca3, transparent),
-        radial-gradient(2px 2px at 20% 20%, rgba(255,140,163,0.9), transparent),
-        radial-gradient(2px 2px at 80% 65%, rgba(255,140,163,0.9), transparent);
-      animation: twinkle 5s ease-in-out infinite alternate;
-    }
-    @keyframes twinkle { from { opacity: 0.55; } to { opacity: 1; } }
-    @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: none; opacity: 1; } }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-    @keyframes bounceArrow { 0%, 100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(6px); } }
-    
-    /* Логика анимации появления блоков при скролле */
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    
-    /* Исправление для кастомных бордеров в Tailwind v3 */
-    .border-l-3 { border-left-width: 3px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
+  <div class="stars"></div>
 
-<body class="overflow-x-hidden max-w-full p-0 m-0 relative selection:bg-[#ffb6c1]/30">
-
-  <!-- МЕРЦАЮЩИЙ ФОН -->
-  <div class="stars-bg fixed inset-0 z-0 pointer-events-none"></div>
-
-  <!-- НАВИГАЦИЯ -->
-  <nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-10 py-4 bg-[#fff5f6]/75 backdrop-blur-xl border-b border-[#ffb6c1]/30 animate-[slideDown_0.6s_ease]">
-    <a class="text-lg font-bold text-[#ff8ca3] tracking-wider no-underline transition-transform hover:scale-105" href="#">VR</a>
-    <ul class="flex gap-5 md:gap-8 list-none m-0 p-0">
-      <li><a href="#over-mij" class="text-[#8a7376] no-underline text-sm font-medium transition-colors hover:text-[#ff8ca3]">Over mij</a></li>
-      <li><a href="#vaardigheden" class="text-[#8a7376] no-underline text-sm font-medium transition-colors hover:text-[#ff8ca3]">Vaardigheden</a></li>
-      <li><a href="#ervaring" class="text-[#8a7376] no-underline text-sm font-medium transition-colors hover:text-[#ff8ca3]">Ervaring</a></li>
-      <li><a href="#contact" class="text-[#8a7376] no-underline text-sm font-medium transition-colors hover:text-[#ff8ca3]">Contact</a></li>
+  <nav>
+    <a class="nav-logo" href="#">VR</a>
+    <ul class="nav-links">
+      <li><a href="#over-mij">Over mij</a></li>
+      <li><a href="#vaardigheden">Vaardigheden</a></li>
+      <li><a href="#ervaring">Ervaring</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- ГЛАВНЫЙ ЭКРАН (Hero) -->
-  <header class="relative z-10 min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24 pb-16">
-    <div class="mb-6 animate-[fadeUp_0.8s_ease_0.2s_both]">
-      <img src="img/profile.jpg" alt="Vadym Rusanov" class="w-[180px] h-[180px] rounded-full object-cover shadow-lg border-4 border-[#ffb6c1]/40 mx-auto">
+  <section class="hero">
+    <div class="hero-image">
+     
+      <a href="profile.jpg" class="gallery-item">
+        <img src="img/profile.jpg" alt="Vadym Rusanov">
+      </a>
     </div>
-    <div class="inline-block bg-[#ffb6c1]/20 border border-[#ffb6c1]/30 text-[#ff8ca3] text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4 animate-[fadeUp_0.8s_ease_0.3s_both]">
-      Stagiair Software Developer · MBO 4
+    <div class="hero-badge">Stagiair Software Developer · MBO 4</div>
+    <h1>Hey, ik ben <span class="gradient-text">Vadym Rusanov</span></h1>
+    <p class="hero-sub">Student software developer in Arnhem. Ik bouw dingen met Python, JavaScript en HTML/CSS en leer elke dag bij.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">Neem contact op</a>
+      <a href="https://github.com" target="_blank" class="btn btn-outline">GitHub bekijken</a>
     </div>
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight m-0 animate-[fadeUp_0.8s_ease_0.5s_both]">
-      Hey, ik ben <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#ff8ca3] to-[#cc99ff]">Vadym Rusanov</span>
-    </h1>
-    <p class="mt-4 text-[#8a7376] text-base md:text-lg max-w-[540px] leading-relaxed animate-[fadeUp_0.8s_ease_0.7s_both]">
-      Student software developer in Arnhem. Ik bouw dingen met Python, JavaScript en HTML/CSS en leer elke dag bij.
-    </p>
-    <div class="mt-8 flex gap-4 flex-wrap justify-center animate-[fadeUp_0.8s_ease_0.9s_both]">
-      <a href="#contact" class="inline-block px-7 py-3 rounded-xl text-sm font-bold no-underline bg-[#ffb6c1] text-[#4a3538] shadow-[0_0_20px_rgba(255,182,193,0.4)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_32px_rgba(255,182,193,0.65)]">Neem contact op</a>
-      <a href="https://github.com" target="_blank" class="inline-block px-7 py-3 rounded-xl text-sm font-bold no-underline bg-transparent text-[#ff8ca3] border-2 border-[#ffb6c1] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#ffb6c1]/10">GitHub bekijken</a>
-    </div>
-    <div class="mt-14 text-center animate-[fadeUp_0.8s_ease_1.1s_both]">
-      <span class="text-[#8a7376] text-[11px] tracking-widest uppercase">Scroll naar beneden</span>
-      <div class="block mx-auto mt-2 w-4 h-4 border-r-2 border-b-2 border-[#ff8ca3] rotate-45 animate-[bounceArrow_1.5s_ease-in-out_infinite]"></div>
-    </div>
-  </header>
+    <div class="scroll-hint">Scroll naar beneden<span class="scroll-arrow"></span></div>
+  </section>
 
-  <!-- КОНТЕНТНАЯ ЧАСТЬ -->
-  <main class="relative z-10 max-w-[900px] mx-auto px-4 space-y-20 pb-24">
+  <hr class="divider">
 
-    <hr class="border-[#ffb6c1]/20 my-0">
-
-    <!-- OVER MIJ -->
-    <section id="over-mij" class="reveal pt-4">
-      <div class="text-[11px] font-bold tracking-widest uppercase text-[#ff8ca3] mb-2">Wie ben ik</div>
-      <h2 class="text-2xl md:text-3xl font-extrabold text-[#4a3538] mb-8">Over mij</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="border-t border-[#ffb6c1]/30 pt-5">
-          <h3 class="text-base font-bold text-[#ff8ca3] mb-3">💻 Profiel</h3>
-          <p class="text-sm text-[#8a7376] leading-relaxed">Gemotiveerde MBO 4 student aan het Astrum College in Arnhem. Ik heb een echte passie voor programmeren en ben dagelijks bezig met code. Ik leer snel, werk graag in een team und ben op zoek naar een stageplek waar ik mezelf verder kan ontwikkelen als developer.</p>
+  <section id="over-mij">
+    <div class="section-inner reveal">
+      <div class="section-label">Wie ben ik</div>
+      <h2 class="section-title">Over mij</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Profiel</h3>
+          <p>Gemotiveerde MBO 4 student aan het Astrum College in Arnhem. Ik heb een echte passie voor programmeren en ben dagelijks bezig met code. Ik leer snel, werk graag in een team en ben op zoek naar een stageplek waar ik mezelf verder kan ontwikkelen als developer.</p>
         </div>
-        <div class="border-t border-[#ffb6c1]/30 pt-5">
-          <h3 class="text-base font-bold text-[#ff8ca3] mb-3">🗣️ Talen</h3>
-          <ul class="text-sm text-[#8a7376] list-none p-0 m-0 space-y-2">
-            <li><span class="inline-block w-6 text-center">🇳🇱</span> Nederlands – goed</li>
-            <li><span class="inline-block w-6 text-center">🇬🇧</span> Engels – goed</li>
-            <li><span class="inline-block w-6 text-center">🇺🇦</span> Oekraïens – moedertaal</li>
-            <li><span class="inline-block w-6 text-center">🇷🇺</span> Russisch – moedertaal</li>
+        <div class="about-card">
+          <h3>Talen</h3>
+          <ul>
+            <li>Nederlands – goed</li>
+            <li>Engels – goed</li>
+            <li>Oekraïens – moedertaal</li>
+            <li>Russisch – moedertaal</li>
           </ul>
         </div>
-        <div class="border-t border-[#ffb6c1]/30 pt-5">
-          <h3 class="text-base font-bold text-[#ff8ca3] mb-3">🤝 Soft skills</h3>
-          <ul class="text-sm text-[#8a7376] list-disc pl-5 space-y-1">
+        <div class="about-card">
+          <h3>Soft skills</h3>
+          <ul>
             <li>Snel lerend en gemotiveerd</li>
             <li>Goed in teamverband</li>
             <li>Betrouwbaar en taakgericht</li>
             <li>Sociaal en collegiaal</li>
           </ul>
         </div>
-        <div class="border-t border-[#ffb6c1]/30 pt-5">
-          <h3 class="text-base font-bold text-[#ff8ca3] mb-3">🎣 Interesses</h3>
-          <ul class="text-sm text-[#8a7376] list-disc pl-5 space-y-1">
+        <div class="about-card">
+          <h3>Interesses</h3>
+          <ul>
             <li>Programmeren</li>
             <li>Vissen</li>
             <li>Lezen</li>
           </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <hr class="border-[#ffb6c1]/20 my-0">
+  <hr class="divider">
 
-    <!-- VAARDIGHEDEN -->
-    <section id="vaardigheden" class="reveal pt-4">
-      <div class="text-[11px] font-bold tracking-widest uppercase text-[#ff8ca3] mb-2">Wat ik kan</div>
-      <h2 class="text-2xl md:text-3xl font-extrabold text-[#4a3538] mb-8">Technische vaardigheden</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-        <div class="border-l-[3px] border-[#ffb6c1] px-4 py-2 text-left transition-all duration-200 hover:translate-x-1 hover:border-[#ff8ca3] hover:pl-5">
-          <div class="text-sm font-bold text-[#4a3538]">Python</div>
-          <div class="text-xs text-[#8a7376] mt-1">Dagelijks gebruik</div>
+  <section id="vaardigheden">
+    <div class="section-inner reveal">
+      <div class="section-label">Wat ik kan</div>
+      <h2 class="section-title">Technische vaardigheden</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-name">Python</div>
+          <div class="skill-level">Dagelijks gebruik</div>
         </div>
-        <div class="border-l-[3px] border-[#ffb6c1] px-4 py-2 text-left transition-all duration-200 hover:translate-x-1 hover:border-[#ff8ca3] hover:pl-5">
-          <div class="text-sm font-bold text-[#4a3538]">JavaScript</div>
-          <div class="text-xs text-[#8a7376] mt-1">Groeiende kennis</div>
+        <div class="skill-card">
+          <div class="skill-name">JavaScript</div>
+          <div class="skill-level">Groeiende kennis</div>
         </div>
-        <div class="border-l-[3px] border-[#ffb6c1] px-4 py-2 text-left transition-all duration-200 hover:translate-x-1 hover:border-[#ff8ca3] hover:pl-5">
-          <div class="text-sm font-bold text-[#4a3538]">HTML</div>
-          <div class="text-xs text-[#8a7376] mt-1">Stevige basis</div>
+        <div class="skill-card">
+          <div class="skill-name">HTML</div>
+          <div class="skill-level">Stevige basis</div>
         </div>
-        <div class="border-l-[3px] border-[#ffb6c1] px-4 py-2 text-left transition-all duration-200 hover:translate-x-1 hover:border-[#ff8ca3] hover:pl-5">
-          <div class="text-sm font-bold text-[#4a3538]">CSS / Tailwind</div>
-          <div class="text-xs text-[#8a7376] mt-1">Stevige basis</div>
+        <div class="skill-card">
+          <div class="skill-name">CSS</div>
+          <div class="skill-level">Stevige basis</div>
         </div>
-        <div class="border-l-[3px] border-[#ffb6c1] px-4 py-2 text-left transition-all duration-200 hover:translate-x-1 hover:border-[#ff8ca3] hover:pl-5">
+        <div class="skill-card">
+          <div class="skill-name">Git / GitHub</div>
+          <div class="skill-level">In ontwikkeling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="ervaring">
+    <div class="section-inner reveal">
+      <div class="section-label">Mijn pad</div>
+      <h2 class="section-title">Opleiding &amp; Ervaring</h2>
+      <div class="about-grid">
+        <div>
+          <h3 class="timeline-header">Opleiding</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2025 – heden</div>
+              <div class="tl-role">Software Developer MBO 4</div>
+              <div class="tl-place">Astrum College, Arnhem</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2023 – 2025</div>
+              <div class="tl-role">NT2 Taalcursus (afgerond)</div>
+              <div class="tl-place">Rijn IJssel, Arnhem</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2011 – 2023</div>
+              <div class="tl-role">HAVO diploma</div>
+              <div class="tl-place">Oekraïne</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="timeline-header">Werkervaring</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2023 – heden</div>
+              <div class="tl-role">Vrijwilliger</div>
+              <div class="tl-place">Voedselbank Presikhaaf, Arnhem</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2025</div>
+              <div class="tl-role">Bezorger</div>
+              <div class="tl-place">Thuisbezorgd &amp; Domino's Pizza</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2023 – 2024</div>
+              <div class="tl-role">Horecamedewerker</div>
+              <div class="tl-place">KFC, Arnhem</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2022</div>
+              <div class="tl-role">Horecamedewerker</div>
+              <div class="tl-place">McDonald's, Arnhem</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="contact">
+    <div class="section-inner reveal">
+      <div class="section-label">Samenwerken?</div>
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-box">
+        <p>Ben je op zoek naar een gemotiveerde stagiair? Ik zou graag kennismaken!</p>
+        <div class="contact-links">
+          <a href="mailto:mr.v.rusanov@gmail.com" class="contact-link">mr.v.rusanov@gmail.com</a>
+          <a href="tel:+31685418951" class="contact-link">06 85 41 89 51</a>
+          <a href="https://github.com" target="_blank" class="contact-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Vadym Rusanov · Arnhem, Nederland</p>
+  </footer>
+
+  <!-- Скрипт библиотеки для фото (SimpleLightbox JS) -->
+  <script src="https://cloudflare.com"></script>
+
+  <script>
+    /* Инициализация библиотеки Lightbox для фото профиля */
+    new SimpleLightbox('.hero-image a', {
+      nav: false,
+      close: true,
+      captions: false
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
