@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vadym Rusanov – Software Developer</title>
-  
-  <!-- Подключение библиотеки для фото (SimpleLightbox CSS) -->
   <link rel="stylesheet" href="https://cloudflare.com">
-  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,8 +23,7 @@
 
   <section class="hero">
     <div class="hero-image">
-     
-      <a href="profile.jpg" class="gallery-item">
+      <a href="img/profile.jpg" class="gallery-item">
         <img src="img/profile.jpg" alt="Vadym Rusanov">
       </a>
     </div>
@@ -197,22 +193,22 @@
     <p>© 2026 Vadym Rusanov · Arnhem, Nederland</p>
   </footer>
 
-  <!-- Скрипт библиотеки для фото (SimpleLightbox JS) -->
   <script src="https://cloudflare.com"></script>
 
   <script>
-    /* Инициализация библиотеки Lightbox для фото профиля */
-    new SimpleLightbox('.hero-image a', {
-      nav: false,
-      close: true,
-      captions: false
-    });
+    document.addEventListener("DOMContentLoaded", function() {
+      new SimpleLightbox('.gallery-item', {
+        nav: false,
+        close: true,
+        captions: false
+      });
 
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.12 });
+      reveals.forEach(el => observer.observe(el));
+    });
   </script>
 </body>
 </html>
