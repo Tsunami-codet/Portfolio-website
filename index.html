@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vadym Rusanov – Software Developer</title>
-  <link rel="stylesheet" href="https://cloudflare.com">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,10 +22,16 @@
 
   <section class="hero">
     <div class="hero-image">
-      <a href="img/profile.jpg" class="gallery-item">
-        <img src="img/profile.jpg" alt="Vadym Rusanov">
+      <a href="#lightbox-profile">
+        <img src="img/profile.jpg" alt="Vadym Rusanov" onerror="this.src='https://placehold.co'">
       </a>
     </div>
+    
+    <div id="lightbox-profile" class="css-lightbox">
+      <a href="#close" class="lightbox-close"></a>
+      <img src="img/profile.jpg" alt="Vadym Rusanov" onerror="this.src='https://placehold.co'">
+    </div>
+
     <div class="hero-badge">Stagiair Software Developer · MBO 4</div>
     <h1>Hey, ik ben <span class="gradient-text">Vadym Rusanov</span></h1>
     <p class="hero-sub">Student software developer in Arnhem. Ik bouw dingen met Python, JavaScript en HTML/CSS en leer elke dag bij.</p>
@@ -40,7 +45,7 @@
   <hr class="divider">
 
   <section id="over-mij">
-    <div class="section-inner reveal">
+    <div class="section-inner visible">
       <div class="section-label">Wie ben ik</div>
       <h2 class="section-title">Over mij</h2>
       <div class="about-grid">
@@ -81,7 +86,7 @@
   <hr class="divider">
 
   <section id="vaardigheden">
-    <div class="section-inner reveal">
+    <div class="section-inner visible">
       <div class="section-label">Wat ik kan</div>
       <h2 class="section-title">Technische vaardigheden</h2>
       <div class="skills-grid">
@@ -112,7 +117,7 @@
   <hr class="divider">
 
   <section id="ervaring">
-    <div class="section-inner reveal">
+    <div class="section-inner visible">
       <div class="section-label">Mijn pad</div>
       <h2 class="section-title">Opleiding &amp; Ervaring</h2>
       <div class="about-grid">
@@ -175,7 +180,7 @@
   <hr class="divider">
 
   <section id="contact">
-    <div class="section-inner reveal">
+    <div class="section-inner visible">
       <div class="section-label">Samenwerken?</div>
       <h2 class="section-title">Contact</h2>
       <div class="contact-box">
@@ -193,22 +198,5 @@
     <p>© 2026 Vadym Rusanov · Arnhem, Nederland</p>
   </footer>
 
-  <script src="https://cloudflare.com"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      new SimpleLightbox('.gallery-item', {
-        nav: false,
-        close: true,
-        captions: false
-      });
-
-      const reveals = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-      }, { threshold: 0.12 });
-      reveals.forEach(el => observer.observe(el));
-    });
-  </script>
 </body>
 </html>
