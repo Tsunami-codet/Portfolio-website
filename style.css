@@ -89,17 +89,17 @@ nav {
   text-align: center; padding: 6rem 2rem 4rem;
 }
 
+.hero-image {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
 .hero-image img {
   width: 200px; 
   height: 200px;
   border-radius: 50%; 
-  margin-bottom: 20px;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.hero-image img:hover {
-  transform: scale(1.03);
+  display: block;
 }
 
 .hero-badge {
@@ -271,4 +271,3 @@ footer p { font-size: 0.8rem; color: var(--muted); }
 
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
