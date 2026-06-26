@@ -1,3 +1,5 @@
+@import url("https://googleapis.com");
+
 * { 
   margin: 0; 
   padding: 0; 
@@ -89,18 +91,29 @@ nav {
   text-align: center; padding: 6rem 2rem 4rem;
 }
 
-.hero-image {
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
 .hero-image img {
   width: 200px; 
   height: 200px;
   border-radius: 50%; 
+  margin-bottom: 20px;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
+
+/* Эффект Lightbox без библиотек и JS (Чистый CSS) */
+.css-lightbox {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(74, 53, 56, 0.85); z-index: 200;
+  display: none; justify-content: center; align-items: center;
+  backdrop-filter: blur(8px);
+}
+.css-lightbox img {
+  max-width: 90%; max-height: 80%; border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+.css-lightbox:target { display: flex; }
+.lightbox-close { position: absolute; inset: 0; cursor: default; }
 
 .hero-badge {
   display: inline-block;
@@ -268,6 +281,7 @@ section { position: relative; z-index: 1; padding: 5rem 0; }
 
 footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); position: relative; z-index: 1; }
 footer p { font-size: 0.8rem; color: var(--muted); }
+
 
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
